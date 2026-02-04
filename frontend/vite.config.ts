@@ -9,6 +9,9 @@ export default defineConfig(() => ({
     port: 5137,
     cors: true,
   },
+  preview: {
+    allowedHosts: ["*"],
+  },
   plugins: [dyadComponentTagger(), react()],
   resolve: {
     alias: {
