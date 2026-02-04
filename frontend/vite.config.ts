@@ -7,7 +7,7 @@ export default defineConfig(() => ({
   server: {
     host: "::",
     port: 5137,
-    cors: true,
+    allowedHosts: ["*"],
   },
   preview: {
     allowedHosts: ["*"],
