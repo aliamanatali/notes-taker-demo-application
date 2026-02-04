@@ -22,7 +22,28 @@ class Settings:
     STRIPE_WEBHOOK_SECRET: str = os.getenv("STRIPE_WEBHOOK_SECRET", "")
     FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
     
-    # CORS settings - Allow all origins by default
-    CORS_ORIGINS: List[str] = ["*"]
+    # CORS settings
+    @property
+    def CORS_ORIGINS(self) -> List[str]:
+        """
+        Get CORS origins from environment or use defaults
+        In production, this should be set to specific domains
+        """
+        cors_env = os.getenv("CORS_ORIGINS", "")
+        
+        if cors_env == "*":
+            return ["*"]
+        elif cors_env:
+            # Split comma-separated origins
+            return [origin.strip() for origin in cors_env.split(",")]
+        else:
+            # Default allowed origins
+            return [
+                "http://localhost:5173",
+                "http://localhost:5137",
+                "http://127.0.0.1:5173",
+                "http://127.0.0.1:5137",
+                "https://notes-taker-demo-application.onrender.com",
+            ]
 
 settings = Settings()

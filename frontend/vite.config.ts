@@ -10,7 +10,13 @@ export default defineConfig(() => ({
     allowedHosts: ["*"],
   },
   preview: {
-    allowedHosts: ["*"],
+    host: true,
+    allowedHosts: [
+      "notes-taker-demo-application.onrender.com",
+      ".onrender.com",
+      "localhost",
+      "127.0.0.1"
+    ],
   },
   plugins: [dyadComponentTagger(), react()],
   resolve: {
