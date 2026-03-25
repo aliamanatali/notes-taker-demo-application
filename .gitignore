@@ -1,5 +1,4 @@
 # Environment variables
-.env
 *.env
 !.env.example
 
@@ -60,3 +59,4 @@ logs/
 *.db
 *.sqlite
 *.sqlite3
+config.bat
